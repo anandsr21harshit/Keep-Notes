@@ -1,0 +1,65 @@
+@import url("./global.css");
+
+.notes-input-container{
+    margin: 1rem 15rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.notes-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.notes-title{
+    width: 90%;
+    padding: 0.5rem 0.3rem;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+}
+
+.notes-area{
+    width: 100%;
+    height: 9rem;
+    border: none;
+    resize: none;
+    outline: none;
+    padding: 0.5rem 0.3rem;
+    font-size: 1rem;
+}
+
+.notes-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.footer-left{
+    display: flex;
+    justify-content: space-between;
+    width: 13rem;
+    position: relative;
+}
+
+.color-palette{
+    position: absolute;
+    top:1.8rem;
+    left:1rem;
+}
+
+.notes-label{
+    border-radius: 0.1rem;
+    outline: none;
+    padding: 0.1rem;
+}
+
+.btn-add{
+    font-size: 1rem;
+    background-color: white;
+    color: inherit;
+    border: none;
+}

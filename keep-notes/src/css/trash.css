@@ -1,0 +1,6 @@
+@import url("./global.css");
+
+.trash-container{
+    margin-top:8rem;
+    display: flex;
+}

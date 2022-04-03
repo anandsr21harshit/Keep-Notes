@@ -1,0 +1,6 @@
+@import url("./global.css");
+
+.archive-container{
+    margin-top:8rem;
+    display: flex;
+}

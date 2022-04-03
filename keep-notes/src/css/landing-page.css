@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+@import url("./global.css");
+
+.landing-page-container{
+    background-color: var(--primary-color);
+    height: 100vh;
+}
+
+.landing-page-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: min-content;
+    margin: 0 auto;
+    top: 2rem;
+}
+
+.title{
+    position:absolute;
+    font-size: 3rem;
+    font-family: 'Caveat', cursive;
+    top:15rem;
+}
+
+.sub-title{
+    position: absolute;
+    font-size: 1.2rem;
+    font-family: 'Caveat', cursive;
+    top: 19rem;
+}
+
+.btn-landing{
+    position: absolute;
+    background-color: var(--primary-color);
+    top: 22rem;
+    left: 17.5rem;
+}
+
+.btn-link{
+    text-decoration: none;
+}
+
+.landing-page-image{
+   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.landing-page-image img{
+    height: 42rem;
+}
+
+/* Media Query */
+
+@media screen and (max-width:720px) {
+    .landing-page-content{
+        top:5rem;
+    }
+    .landing-page-image img{
+        height: 35rem;
+    }
+    .btn-landing{
+        top: 18rem;
+        left: 13.5rem;
+    }
+    .title{
+        top:12rem;
+    }
+    .sub-title{
+        top:16rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .landing-page-content{
+        top:5rem;
+    }
+    .landing-page-image img{
+        height: 25rem;
+    }
+    .btn-landing{
+        top: 18rem;
+        left: 13.5rem;
+    }
+    .title{
+        top:12rem;
+    }
+    .sub-title{
+        top:16rem;
+    }
+}
