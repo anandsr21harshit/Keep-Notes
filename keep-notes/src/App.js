@@ -4,9 +4,11 @@ import {Labels} from "./pages/Labels"
 import {Archive} from "./pages/Archive"
 import {Trash} from "./pages/Trash"
 import {Routes, Route} from "react-router-dom"
+import { useAuth } from "./context/auth-context"
 
 
 function App() {
+  const {token} = useAuth();
   return (
     <>
       <Routes>
