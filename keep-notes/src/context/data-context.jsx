@@ -4,7 +4,7 @@ import {initialState,dataReducer} from "../reducer/data-reducer"
 
 const DataContext = createContext();
 
-const DataProvider = ({chidren}) => {
+const DataProvider = ({children}) => {
 
     const {token, currentUser} = useAuth();
     const [state, dispatch] = useReducer(dataReducer, initialState);
@@ -16,11 +16,11 @@ const DataProvider = ({chidren}) => {
         if(token){
             dispatch({type:"ADD_NOTES",payload:{note:currentUser.notes}})
         }
-    })
+    },[token]);
 
     return (
         <DataContext.Provider value={{state,dispatch}}>
-            {chidren}
+            {children}
         </DataContext.Provider>
     )
 }
