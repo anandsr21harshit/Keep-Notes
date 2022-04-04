@@ -3,23 +3,25 @@ import axios from "axios"
 
 const AuthContext = createContext();
 
-const AuthProvider = ({chidlren})=>{
-    const localStorageToken = JSON.parse(localStorage.getItem('loginCred'))
-    const [currentUser, setCurrentUser] = useState(localStorageToken?.token)
-    const [token, setToken] = useState(localStorageToken?.user)
+const AuthProvider = ({children})=>{
+    const localStorageToken = JSON.parse(localStorage.getItem("loginCred"))
+    console.log(localStorageToken);
+    const [currentUser, setCurrentUser] = useState(localStorageToken?.user)
+    const [token, setToken] = useState(localStorageToken?.token)
 
     const loginHandler = async (email,password)=>{
         try{
             const response = await axios.post("/api/auth/login",{email, password});
-
+            console.log(response);
             if(response.status === 200 || response.status === 201){
                 localStorage.setItem("loginCred",JSON.stringify({token: response.data.encodedToken,user:response.data.foundUser}));
                 setCurrentUser(response.data.foundUser);
-                setToken(response.data.encodedtoken);
+                setToken(response.data.encodedToken);
             }
+            console.log("logged in");
         }
         catch(err){
-            console.log(err.message);
+            console.log(err);
         }
     }
 
@@ -51,7 +53,7 @@ const AuthProvider = ({chidlren})=>{
 
     return(
         <AuthContext.Provider value={{loginHandler,signUpHandler,logOutHandler,token,currentUser}}>
-            {chidlren}
+            {children}
         </AuthContext.Provider>
     )
 }
