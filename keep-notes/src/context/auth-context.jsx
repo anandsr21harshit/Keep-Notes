@@ -19,7 +19,7 @@ const AuthProvider = ({children})=>{
             }
         }
         catch(err){
-            console.log(err);
+            console.error(err.message);
         }
     }
 
@@ -39,7 +39,7 @@ const AuthProvider = ({children})=>{
             }
         }
         catch(err){
-            console.log(err.message);
+            console.error(err.message);
         }
     }
 
