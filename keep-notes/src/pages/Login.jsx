@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../context/auth-context";
+import { useAuth } from "../context/index"
 import { useNavigate } from "react-router-dom";
-import { NavBar } from "../components/NavBar";
-import "../css/login.css";
+import { NavBar } from "../components/index";
 import { Link } from "react-router-dom";
+import "../css/login.css";
 
 function Login() {
   const navigate = useNavigate();
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
   const { loginHandler, token } = useAuth();
-
-  console.log({ loginDetails });
-  console.log({ token });
 
   useEffect(() => {
     if (token) {
@@ -22,9 +19,12 @@ function Login() {
     console.log("useEffect");
   }, [token]);
 
-  function guestLogin(){
-      setLoginDetails({email:"adarshbalika@gmail.com",password:"adarshBalika123"});
-      loginHandler(loginDetails.email,loginDetails.password);
+  function guestLogin() {
+    setLoginDetails({
+      email: "adarshbalika@gmail.com",
+      password: "adarshBalika123",
+    });
+    loginHandler(loginDetails.email, loginDetails.password);
   }
 
   return (
@@ -66,8 +66,12 @@ function Login() {
             <a href="../">Forgot password?</a>
           </div>
           <div className="login-btn">
-            <button className="btn btn-secondary" type="submit">Login</button>
-            <button className="btn btn-secondary" onClick={guestLogin}>Login as Guest</button>
+            <button className="btn btn-secondary" type="submit">
+              Login
+            </button>
+            <button className="btn btn-secondary" onClick={guestLogin}>
+              Login as Guest
+            </button>
           </div>
           <p className="no-account">
             Don't have an account? <Link to="/signup">Sign Up</Link>

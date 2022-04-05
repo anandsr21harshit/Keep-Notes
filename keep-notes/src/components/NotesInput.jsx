@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../css/notes-input.css";
 import { ChromePicker } from "react-color";
 import axios from "axios";
 import { useAuth } from "../context/auth-context";
+import "../css/notes-input.css";
 
 
 function NotesInput() {

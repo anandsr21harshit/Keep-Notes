@@ -5,7 +5,6 @@ const AuthContext = createContext();
 
 const AuthProvider = ({children})=>{
     const localStorageToken = JSON.parse(localStorage.getItem("loginCred"))
-    console.log(localStorageToken);
     const [currentUser, setCurrentUser] = useState(localStorageToken?.user)
     const [token, setToken] = useState(localStorageToken?.token)
 
@@ -18,7 +17,6 @@ const AuthProvider = ({children})=>{
                 setCurrentUser(response.data.foundUser);
                 setToken(response.data.encodedToken);
             }
-            console.log("logged in");
         }
         catch(err){
             console.log(err);
