@@ -1,7 +1,5 @@
 import React from 'react'
-import {NavBar} from "../components/NavBar"
-import {SideBar} from "../components/SideBar"
-import {NotesInput} from "../components/NotesInput"
+import {NavBar,SideBar,NotesInput} from "../components/index"
 import "../css/home.css"
 
 function Home() {
