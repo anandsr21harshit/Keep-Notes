@@ -15,6 +15,7 @@ const DataProvider = ({children}) => {
         }
         if(token){
             dispatch({type:"ADD_NOTES",payload:{note:currentUser.notes}})
+            dispatch({type:"ARCHIVE", payload:{archive:currentUser.archives}})
         }
     },[token]);
 
