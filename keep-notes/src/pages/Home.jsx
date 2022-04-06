@@ -1,15 +1,21 @@
 import React from 'react'
-import {NavBar,SideBar,NotesInput} from "../components/index"
+import {NavBar,SideBar,NotesInput, NoteCard} from "../components/index"
+import { useData } from '../context'
 import "../css/home.css"
 
 function Home() {
+
+  const {state} = useData();
   return (
     <>
       <NavBar/>
-      <main className='home-container'>
+      <header className='home-container'>
         <SideBar/>
         <NotesInput></NotesInput>
-      </main>
+      </header>
+      <section className="notes-container">
+        {state.notes.map(note => (<NoteCard notesData={note}/>))}
+      </section>
     </>
 
   )

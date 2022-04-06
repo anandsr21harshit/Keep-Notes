@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import axios from "axios";
-import { useAuth } from "../context/auth-context";
+import { useAuth, useData } from "../context/index";
+import { NoteCard } from "./NoteCard";
 import "../css/notes-input.css";
 
-
 function NotesInput() {
-  
-  const {token} = useAuth();
+  const { token } = useAuth();
+  const { state, dispatch } = useData();
+
   const [colorPalette, setColorPalette] = useState(false);
   const [color, setColor] = useState("#FFFFFF");
 
@@ -20,24 +21,28 @@ function NotesInput() {
       date.getMonth() + 1
     }/${date.getFullYear()}`,
     label: "",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: {hex:"#FFFFFF"},
   };
 
   const [note, setNote] = useState(initialNote);
 
-  const notesHandler = async () => {
-    try{
-      const response = await axios.post("/api/notes",note,{headers:{authorization: token}})
+  const addNotesHandler = async () => {
+    try {
+      const response = await axios.post(
+        "/api/notes",
+        { note },
+        { headers: { authorization: token } }
+      );
 
-      if(response.status === 200 || response.status === 201){
-        console.log("check response", response.data.notes)
+      console.log(response);
 
+      if (response.status === 200 || response.status === 201) {
+        dispatch({ type: "ADD_NOTES", payload: { note: response.data.notes } });
       }
+    } catch (err) {
+      console.error(err.message);
     }
-    catch(err){
-      console.log(err.message);
-    }
-  }
+  };
 
   return (
     <>
@@ -48,7 +53,9 @@ function NotesInput() {
             type="text"
             placeholder="Title"
             value={note.title}
-            onChange={(e) => setNote({ ...note, title: e.target.value })}
+            onChange={(e) =>
+              setNote(() => ({ ...note, title: e.target.value }))
+            }
           />
           <p>
             <i className="bi bi-pin-fill"></i>
@@ -59,7 +66,9 @@ function NotesInput() {
             placeholder="Type Notes"
             className="notes-area"
             value={note.content}
-            onChange={(e) => setNote({ ...note, content: e.target.value })}
+            onChange={(e) =>
+              setNote(() => ({ ...note, content: e.target.value }))
+            }
           ></textarea>
         </section>
         <footer className="notes-footer">
@@ -69,7 +78,9 @@ function NotesInput() {
               placeholder="Label"
               className="notes-label"
               value={note.label}
-              onChange={(e) => setNote({ ...note, label: e.target.value })}
+              onChange={(e) =>
+                setNote(() => ({ ...note, label: e.target.value }))
+              }
             />
             <i
               className="bi bi-palette"
@@ -79,20 +90,28 @@ function NotesInput() {
               <ChromePicker
                 className="color-palette"
                 color={color}
-                onChange={(newColor) => setColor(newColor)}
+                onChange={(newColor) => {
+                  setColor(() => newColor);
+                  setNote(() => ({ ...note, backgroundColor: color }));
+                }}
               />
             )}
           </div>
-          <button className="btn btn-primary btn-add" onClick={()=>{
-            notesHandler();
-            setNote({
-              title:"",
-              content:"",
-              backgroundColor: note.backgroundColor,
-              dateCreated: note.dateCreated,
-              label: ""
-            })
-          }}>Add</button>
+          <button
+            className="btn btn-primary btn-add"
+            onClick={() => {
+              addNotesHandler();
+              setNote(() => ({
+                title: "",
+                content: "",
+                backgroundColor: note.backgroundColor,
+                dateCreated: note.dateCreated,
+                label: "",
+              }));
+            }}
+          >
+            Add
+          </button>
         </footer>
       </div>
     </>
