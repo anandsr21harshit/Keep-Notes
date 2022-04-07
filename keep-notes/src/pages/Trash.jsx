@@ -7,11 +7,10 @@ import "../css/trash.css";
 function Trash() {
   const { state, dispatch } = useData();
 
+  function permanentDeleteHandler(id) {
+    const newData = state.trash.filter((item) => item._id !== id);
 
-  function permanentDeleteHandler(id){
-    const newData = state.trash.filter(item => item._id !== id);
-
-    dispatch({type:"PERMANENT_DELETE",payload:newData})
+    dispatch({ type: "PERMANENT_DELETE", payload: newData });
   }
 
   return (
@@ -19,29 +18,33 @@ function Trash() {
       <NavBar></NavBar>
       <div className="trash-container">
         <SideBar></SideBar>
-        {state.trash.map((trashItem) => {
-          return (
-            <div className="card-container" key={trashItem._id}>
-              <div
-                className="card card-without-image"
-                style={{backgroundColor: trashItem.backgroundColor}}
-              >
-                <div className="heading">
-                  <div className="card-title">{trashItem.title}</div>
-                  <div className="card-sub-title">{trashItem.dateCreated}</div>
+        <div className="trash-item-container">
+          {state.trash.map((trashItem) => {
+            return (
+              <div className="card-container" key={trashItem._id}>
+                <div
+                  className="card card-without-image"
+                  style={{ backgroundColor: trashItem.backgroundColor }}
+                >
+                  <div className="heading">
+                    <div className="card-title">{trashItem.title}</div>
+                    <div className="card-sub-title">
+                      {trashItem.dateCreated}
+                    </div>
+                  </div>
+                  <div className="card-content">{trashItem.content}</div>
+                  <footer className="card-footer">
+                    <i
+                      title="delete permanently"
+                      className="bi bi-trash-fill m-32"
+                      onClick={() => permanentDeleteHandler(trashItem._id)}
+                    ></i>
+                  </footer>
                 </div>
-                <div className="card-content">{trashItem.content}</div>
-                <footer className="card-footer">
-                  <i
-                    title="delete permanently"
-                    className="bi bi-trash-fill m-32"
-                    onClick={() => permanentDeleteHandler(trashItem._id)}
-                  ></i>
-                </footer>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

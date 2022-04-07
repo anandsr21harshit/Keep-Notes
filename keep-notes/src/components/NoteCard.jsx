@@ -52,7 +52,7 @@ function NoteCard({ notesData }) {
       >
         <div className="heading">
           <div className="card-title">{notesData.title}</div>
-          <div className="card-sub-title">{notesData.dateCreated}</div>
+          <div className="card-sub-title label">{notesData.label}</div>
         </div>
         <div className="card-content">{notesData.content}</div>
         <footer className="card-footer">
