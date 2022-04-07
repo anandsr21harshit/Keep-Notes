@@ -14,15 +14,6 @@ function Trash() {
     dispatch({type:"PERMANENT_DELETE",payload:newData})
   }
 
-  function restoreHandler(id){
-    const restoredItem = state.trash.filter(item => item._id === id);
-    const newData = state.trash.filter(item => item._id !== id);
-
-    dispatch({type:"ADD_NOTES", payload:{note:restoredItem}});
-    dispatch({type:"PERMANENT_DELETE",payload:newData})
-
-  }
-
   return (
     <>
       <NavBar></NavBar>
@@ -41,7 +32,6 @@ function Trash() {
                 </div>
                 <div className="card-content">{trashItem.content}</div>
                 <footer className="card-footer">
-                  <i title="restore" className="bi bi-arrow-bar-up m-32" onClick={()=>restoreHandler(trashItem._id)}></i>
                   <i
                     title="delete permanently"
                     className="bi bi-trash-fill m-32"
