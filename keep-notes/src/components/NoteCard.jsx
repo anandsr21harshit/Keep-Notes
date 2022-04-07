@@ -14,7 +14,6 @@ function NoteCard({ notesData }) {
           authorization: token,
         },
       });
-      console.log(response);
 
       if(response.status === 200 || response.status === 201){
         const deletedData = state.notes.filter(item => item._id === notesData._id)[0];
@@ -27,7 +26,23 @@ function NoteCard({ notesData }) {
     }
   }
 
-  console.log({notesData});
+  async function archiveHandler(){
+    try{
+      const response = await axios.post(`/api/notes/archives/${notesData._id}`,{notesData},{
+        headers:{
+          authorization:token
+        }
+      });
+
+      if(response.status === 200 || response.status === 201){
+        dispatch({type:"ARCHIVE",payload:{archive: response.data.archives}});
+        dispatch({type:"ADD_NOTES", payload:{note: response.data.notes}});
+      }
+    }
+    catch(err){
+      console.error(err);
+    }
+  }
 
   return (
     <div className="card-container">
@@ -42,7 +57,7 @@ function NoteCard({ notesData }) {
         <div className="card-content">{notesData.content}</div>
         <footer className="card-footer">
           <i title="edit" className="bi bi-pencil-square m-32"></i>
-          <i title="archive" className="bi bi-archive-fill m-32"></i>
+          <i title="archive" className="bi bi-archive-fill m-32" onClick={archiveHandler}></i>
           <i
             title="delete"
             className="bi bi-trash-fill m-32"
