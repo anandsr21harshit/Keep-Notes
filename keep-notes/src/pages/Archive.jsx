@@ -75,9 +75,10 @@ function Archive() {
                   </div>
                   <div className="card-content">{archivedData.content}</div>
                   <footer className="card-footer">
+                    <div className="icon-wrapper">
                     <i
                       title="restore"
-                      className="bi bi-arrow-bar-up m-32"
+                      className="bi bi-arrow-up-square-fill m-32"
                       onClick={() => archiveRestoreHandler(archivedData._id)}
                     ></i>
                     <i
@@ -85,6 +86,8 @@ function Archive() {
                       className="bi bi-trash-fill m-32"
                       onClick={() => archiveDeleteHandler(archivedData._id)}
                     ></i>
+                    </div>
+                    
                   </footer>
                 </div>
               </div>

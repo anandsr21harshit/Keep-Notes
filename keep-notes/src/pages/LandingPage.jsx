@@ -14,11 +14,9 @@ function LandingPage() {
             alt="NoteBook"
           />
         </div>
-        <button className="btn btn-primary btn-landing">
-          <Link className="btn-link" to={"/login"}>
-            Login
-          </Link>
-        </button>
+        <Link className="btn-link" to={"/login"}>
+          <button className="btn btn-primary btn-landing">Login</button>
+        </Link>
       </div>
     </div>
   );
