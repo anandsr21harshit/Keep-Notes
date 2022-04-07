@@ -1,6 +1,7 @@
 const initialState = {
     notes: [],
-    archive: []
+    archive: [],
+    trash:[],
 }
 
 const dataReducer = (state, action) => {
@@ -11,6 +12,21 @@ const dataReducer = (state, action) => {
             return {
                 ...state,
                 notes: [...payload.note]
+            }
+        case "ARCHIVE":
+            return{
+                ...state,
+                archive: [...payload.archive]
+            }
+        case "TRASH":
+            return{
+                ...state,
+                trash: [...state.trash,payload]
+            }
+        case "PERMANENT_DELETE":
+            return {
+                ...state,
+                trash: payload
             }
     }
 }

@@ -14,7 +14,7 @@ function Home() {
         <NotesInput></NotesInput>
       </header>
       <section className="notes-container">
-        {state.notes.map(note => (<NoteCard notesData={note}/>))}
+        {state.notes.map(note => (<NoteCard notesData={note} key={note._id}/>))}
       </section>
     </>
 
