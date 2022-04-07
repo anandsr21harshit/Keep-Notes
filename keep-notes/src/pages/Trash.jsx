@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { NavBar } from "../components/NavBar";
 import { SideBar } from "../components/SideBar";
 import { useData } from "../context";
@@ -34,7 +33,7 @@ function Trash() {
             <div className="card-container" key={trashItem._id}>
               <div
                 className="card card-without-image"
-                style={{backgroundColor: trashItem.backgroundColor.hex}}
+                style={{backgroundColor: trashItem.backgroundColor}}
               >
                 <div className="heading">
                   <div className="card-title">{trashItem.title}</div>

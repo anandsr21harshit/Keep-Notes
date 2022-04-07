@@ -10,7 +10,8 @@ function NotesInput() {
   const { state, dispatch } = useData();
 
   const [colorPalette, setColorPalette] = useState(false);
-  const [color, setColor] = useState("#FFFFFF");
+  const [color, setColor] = useState();
+
 
   const date = new Date();
 
@@ -21,7 +22,7 @@ function NotesInput() {
       date.getMonth() + 1
     }/${date.getFullYear()}`,
     label: "",
-    backgroundColor: {hex:"#FFFFFF"},
+    backgroundColor: "#FFFFFF"
   };
 
   const [note, setNote] = useState(initialNote);
@@ -91,8 +92,8 @@ function NotesInput() {
                 className="color-palette"
                 color={color}
                 onChange={(newColor) => {
-                  setColor(() => newColor);
-                  setNote(() => ({ ...note, backgroundColor: color }));
+                  setColor(newColor.hex)
+                  setNote(() => ({ ...note, backgroundColor: newColor.hex }));
                 }}
               />
             )}

@@ -27,11 +27,13 @@ function NoteCard({ notesData }) {
     }
   }
 
+  console.log({notesData});
+
   return (
     <div className="card-container">
       <div
         className="card card-without-image"
-        style={{ backgroundColor: notesData.backgroundColor.hex }}
+        style={{ backgroundColor: notesData.backgroundColor}}
       >
         <div className="heading">
           <div className="card-title">{notesData.title}</div>
