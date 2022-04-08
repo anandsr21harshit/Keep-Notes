@@ -60,6 +60,7 @@ function Archive() {
       <main className="archive-container">
         <SideBar></SideBar>
         <div className="archive-note-container">
+          {state.archive.length === 0 && <h1 className="empty-archive-title">Archive is Empty</h1> }
           {state.archive.map((archivedData) => {
             return (
               <div className="card-container" key={archivedData._id}>

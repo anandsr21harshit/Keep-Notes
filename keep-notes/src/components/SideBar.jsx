@@ -19,12 +19,6 @@ function SideBar() {
         <h3>Home</h3>
       </div>
       </Link>
-      <Link to={"/labels"} className="side-bar-links">
-      <div className="options">
-        <i className="bi bi-tags-fill"></i>
-        <h3>Lables</h3>
-      </div>
-      </Link>
       <Link to={"/archive"} className="side-bar-links">
       <div className="options">
         <i className="bi bi-archive-fill"></i>

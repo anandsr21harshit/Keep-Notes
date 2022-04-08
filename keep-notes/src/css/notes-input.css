@@ -1,4 +1,6 @@
 @import url("./global.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 
 .notes-input-container{
     margin: 1rem 15rem;
@@ -8,6 +10,13 @@
     box-shadow: rgba(255, 255, 255, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     background-color: white;
 }
+
+.notes-title,
+.notes-area,
+.notes-label {
+    font-family: 'Roboto', sans-serif;
+}
+
 
 .notes-header{
     display: flex;
@@ -77,4 +86,36 @@
     height: 100%;
     width: 100%;    
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+@media screen and (max-width: 820px) {
+    .notes-input-container{
+        margin: 1rem 4rem;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .notes-input-container{
+        margin: 1rem 5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .notes-input-container{
+        width: 20rem;
+        margin: 1rem 3rem;
+    }
+    .notes-footer{
+        /* flex-direction: column; */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .notes-input-container{
+        width: 18rem;
+        margin: 5rem 3rem;
+    }
+    .notes-footer{
+        flex-direction: column;
+    }
 }

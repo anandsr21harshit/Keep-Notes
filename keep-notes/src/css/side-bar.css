@@ -23,3 +23,9 @@
     cursor: pointer;
     background-color: var(--primary-color-light);
 }
+
+@media screen and (max-width: 620px) {
+    .side-bar{
+        display: none;
+    }
+}

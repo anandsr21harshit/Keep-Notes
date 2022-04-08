@@ -1,7 +1,6 @@
 import {
   LandingPage,
   Home,
-  Labels,
   Archive,
   Trash,
   Login,
@@ -18,7 +17,6 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/trash" element={token ? <Trash /> : <Navigate to={"/login"}/>}></Route>
         <Route path="/archive" element={token ? <Archive /> : <Navigate to={"/login"}/>}></Route>
-        <Route path="/labels" element={token ? <Labels /> : <Navigate to={"/login"}/>}></Route>
         <Route path="/home" element={token ? <Home /> : <Navigate to={"/login"}/>}></Route>
         <Route path="/" element={<LandingPage />}></Route>
       </Routes>

@@ -19,6 +19,7 @@ function Trash() {
       <div className="trash-container">
         <SideBar></SideBar>
         <div className="trash-item-container">
+          {state.trash.length === 0 && <h1 className="empty-trash-title">Trash is Empty</h1> }
           {state.trash.map((trashItem) => {
             return (
               <div className="card-container" key={trashItem._id}>

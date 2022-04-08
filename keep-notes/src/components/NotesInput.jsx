@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import axios from "axios";
 import { useAuth, useData } from "../context/index";
-import { NoteCard } from "./NoteCard";
 import "../css/notes-input.css";
 
 function NotesInput({ data, setEdit }) {
   const { token } = useAuth();
-  const { state, dispatch } = useData();
+  const { dispatch } = useData();
 
   const [colorPalette, setColorPalette] = useState(false);
   const [color, setColor] = useState();

@@ -10,3 +10,7 @@
     grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
     width: 80%;
 }
+
+.empty-trash-title{
+    text-align: center;
+}

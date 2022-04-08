@@ -11,7 +11,7 @@ function Home() {
       <NavBar/>
       <header className='home-container'>
         <SideBar/>
-        <NotesInput></NotesInput>
+        <NotesInput/>
       </header>
       <section className="notes-container">
         {state.notes.map(note => (<NoteCard notesData={note} key={note._id}/>))}
