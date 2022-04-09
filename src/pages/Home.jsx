@@ -1,11 +1,15 @@
 import React from 'react'
 import {NavBar,SideBar,NotesInput, NoteCard} from "../components/index"
 import { useData } from '../context'
+import {sortByDate} from "../utilities/filterFunction"
 import "../css/home.css"
 
 function Home() {
 
   const {state} = useData();
+  const {notes, date} = state;
+  const sortedData = sortByDate(notes, date);
+
   return (
     <>
       <NavBar/>
@@ -14,7 +18,7 @@ function Home() {
         <NotesInput/>
       </header>
       <section className="notes-container">
-        {state.notes.map(note => (<NoteCard notesData={note} key={note._id}/>))}
+        {sortedData.map(note => (<NoteCard notesData={note} key={note._id}/>))}
       </section>
     </>
 
