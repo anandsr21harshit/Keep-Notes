@@ -2,6 +2,7 @@ const initialState = {
     notes: [],
     archive: [],
     trash:[],
+    date: ""
 }
 
 const dataReducer = (state, action) => {
@@ -29,6 +30,12 @@ const dataReducer = (state, action) => {
                 ...state,
                 trash: payload
             }
+        case "FILTER":
+            return{
+                ...state,
+                date: payload
+            }
+
         default:
             return state;
     }

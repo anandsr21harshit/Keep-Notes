@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../css/side-bar.css";
 import {Link} from "react-router-dom"
 import { LogoutModal } from "./Logout-Modal";
+import { useData } from "../context";
 
 function SideBar() {
 
@@ -10,6 +11,8 @@ function SideBar() {
 
   const [logoutModal, setLogoutModal] = useState(false);
   const [filter, setFilter] = useState(false);
+
+  const {dispatch} = useData();
 
   return (
     <>
@@ -39,12 +42,15 @@ function SideBar() {
       </div>
       {filter && <div className = "filter-container">
         <div className="filter-item">
-          <input type="radio" id="new" name="sort" value="asc" onChange={()=> console.log(true)} />
+          <input type="radio" id="new" name="sort" value="new" onChange={(e)=> dispatch({type:"FILTER", payload:e.target.value})} />
           <label htmlFor="new">New to Old</label>
         </div>
         <div className="filter-item">
-          <input type="radio" id="old" name="sort" value="desc" onChange={()=> console.log(true)} />
+          <input type="radio" id="old" name="sort" value="old" onChange={(e)=> dispatch({type:"FILTER", payload:e.target.value})} />
           <label htmlFor="old">Old to New</label>
+        </div>
+        <div className="filter-item">
+          <p>Clear Filter</p>
         </div>
       </div>}
       </Link>
