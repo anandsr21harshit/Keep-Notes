@@ -19,9 +19,17 @@
     justify-content: flex-start;
 }
 
-.side-bar div:hover{
-    cursor: pointer;
-    background-color: var(--primary-color-light);
+.filter-container{
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter-item > p {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 620px) {
