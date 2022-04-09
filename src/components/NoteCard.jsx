@@ -21,7 +21,6 @@ function NoteCard({ notesData }) {
         const deletedData = state.notes.filter(
           (item) => item._id === notesData._id
         )[0];
-        console.log({ deletedData });
         dispatch({ type: "TRASH", payload: deletedData });
         dispatch({ type: "ADD_NOTES", payload: { note: response.data.notes } });
       }
@@ -69,12 +68,12 @@ function NoteCard({ notesData }) {
             style={{ backgroundColor: notesData.backgroundColor }}
           >
             <div className="heading">
-              <div className="card-title">{notesData.title}</div>
-              <div className="card-sub-title label">{notesData.label}</div>
+              <div className="card-title custom-font">{notesData.title}</div>
+              {notesData.label && <div className="card-sub-title label custom-font">{notesData.label}</div>}
             </div>
-            <div className="card-content">{notesData.content}</div>
+            <div className="card-content custom-font">{notesData.content}</div>
             <footer className="card-footer">
-              <div className="d-flex">{notesData.dateCreated}</div>
+              <div className="d-flex custom-font">{notesData.dateCreated}</div>
               <div className="icon-wrapper d-flex">
                 <i
                   title="edit"

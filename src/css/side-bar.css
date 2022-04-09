@@ -32,6 +32,10 @@
     text-decoration: underline;
 }
 
+.filter-item > p:hover{
+    cursor: pointer;
+}
+
 @media screen and (max-width: 620px) {
     .side-bar{
         display: none;

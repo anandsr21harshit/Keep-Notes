@@ -47,7 +47,6 @@ function NotesInput({ data, setEdit }) {
           { headers: { authorization: token } }
         );
       }
-      console.log(response);
 
       if (response.status === 200 || response.status === 201) {
         dispatch({ type: "ADD_NOTES", payload: { note: response.data.notes } });
