@@ -17,7 +17,7 @@ const DataProvider = ({children}) => {
             dispatch({type:"ADD_NOTES",payload:{note:currentUser.notes}})
             dispatch({type:"ARCHIVE", payload:{archive:currentUser.archives}})
         }
-    },[token]);
+    },[token, currentUser.archives, currentUser.notes]);
 
     return (
         <DataContext.Provider value={{state,dispatch}}>

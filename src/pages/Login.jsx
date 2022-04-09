@@ -17,7 +17,7 @@ function Login() {
       }, 1000);
     }
     console.log("useEffect");
-  }, [token]);
+  }, [token, navigate]);
 
   function guestLogin() {
     setLoginDetails({
