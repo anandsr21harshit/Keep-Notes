@@ -60,6 +60,7 @@ function Archive() {
       <main className="archive-container">
         <SideBar></SideBar>
         <div className="archive-note-container">
+          {state.archive.length === 0 && <h1 className="empty-archive-title">Archive is Empty</h1> }
           {state.archive.map((archivedData) => {
             return (
               <div className="card-container" key={archivedData._id}>
@@ -75,9 +76,10 @@ function Archive() {
                   </div>
                   <div className="card-content">{archivedData.content}</div>
                   <footer className="card-footer">
+                    <div className="icon-wrapper">
                     <i
                       title="restore"
-                      className="bi bi-arrow-bar-up m-32"
+                      className="bi bi-arrow-up-square-fill m-32"
                       onClick={() => archiveRestoreHandler(archivedData._id)}
                     ></i>
                     <i
@@ -85,6 +87,8 @@ function Archive() {
                       className="bi bi-trash-fill m-32"
                       onClick={() => archiveDeleteHandler(archivedData._id)}
                     ></i>
+                    </div>
+                    
                   </footer>
                 </div>
               </div>
