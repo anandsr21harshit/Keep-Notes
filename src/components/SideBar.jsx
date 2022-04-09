@@ -9,6 +9,7 @@ function SideBar() {
   const user = localStorageItem.user.firstName;
 
   const [logoutModal, setLogoutModal] = useState(false);
+  const [filter, setFilter] = useState(false);
 
   return (
     <>
@@ -30,6 +31,22 @@ function SideBar() {
         <i className="bi bi-trash-fill"></i>
         <h3>Trash</h3>
       </div>
+      </Link>
+      <Link to={"#"} className="side-bar-links">
+      <div className="options" onClick={()=>setFilter(!filter)}>
+        <i className="bi bi-funnel-fill"></i>
+        <h3>Filter</h3>
+      </div>
+      {filter && <div className = "filter-container">
+        <div className="filter-item">
+          <input type="radio" id="new" name="sort" value="asc" onChange={()=> console.log(true)} />
+          <label htmlFor="new">New to Old</label>
+        </div>
+        <div className="filter-item">
+          <input type="radio" id="old" name="sort" value="desc" onChange={()=> console.log(true)} />
+          <label htmlFor="old">Old to New</label>
+        </div>
+      </div>}
       </Link>
       <Link to={"#"} className="side-bar-links">
       <div className="options" onClick={()=>setLogoutModal(true)}>
