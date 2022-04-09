@@ -4,6 +4,7 @@ import {
   Archive,
   Trash,
   Login,
+  SignUp
 } from "./pages/index";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context";
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/trash" element={token ? <Trash /> : <Navigate to={"/login"}/>}></Route>
         <Route path="/archive" element={token ? <Archive /> : <Navigate to={"/login"}/>}></Route>
