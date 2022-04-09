@@ -18,7 +18,8 @@ function NotesInput({ data, setEdit }) {
     content: "",
     dateCreated: `${date.getDate()}/${
       date.getMonth() + 1
-    }/${date.getFullYear()}`,
+    }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+    timeStamp: date.getTime(),
     label: "",
     backgroundColor: "#FFFFFF",
   };
@@ -118,7 +119,10 @@ function NotesInput({ data, setEdit }) {
                   title: "",
                   content: "",
                   backgroundColor: note.backgroundColor,
-                  dateCreated: note.dateCreated,
+                  dateCreated: `${date.getDate()}/${
+                    date.getMonth() + 1
+                  }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+                  timeStamp: date.getTime(),
                   label: "",
                 }));
                 data && setEdit(false);
