@@ -11,19 +11,19 @@ function NavBar() {
     <>
       <nav className="nav-bar">
         <h1 className="nav-brand">Keep Notes</h1>
-        <ul class="menus">
-          <li class="menu">
-            <i class="bi bi-list" onClick={() => setList(!list)}></i>
+        <ul className="menus">
+          <li className="menu">
+            <i className="bi bi-list" onClick={() => setList(!list)}></i>
           </li>
         </ul>
       </nav>
       {list && (
         <div className="modal">
-          <ul class="list-container hidden-list">
-            <div class="list-heading">
-              <i class="bi bi-x-lg" onClick={() => setList(false)}></i>
+          <ul className="list-container hidden-list">
+            <div className="list-heading">
+              <i className="bi bi-x-lg" onClick={() => setList(false)}></i>
             </div>
-            <li class="stacked">
+            <li className="stacked">
               <Link to={"/home"} className="side-bar-links">
                 <div className="options">
                   <i className="bi bi-house-door-fill"></i>
@@ -31,7 +31,7 @@ function NavBar() {
                 </div>
               </Link>
             </li>
-            <li class="stacked">
+            <li className="stacked">
               <Link to={"/archive"} className="side-bar-links">
                 <div className="options">
                   <i className="bi bi-archive-fill"></i>
@@ -39,7 +39,7 @@ function NavBar() {
                 </div>
               </Link>
             </li>
-            <li class="stacked">
+            <li className="stacked">
               <Link to={"/trash"} className="side-bar-links">
                 <div className="options">
                   <i className="bi bi-trash-fill"></i>
