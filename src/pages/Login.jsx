@@ -23,7 +23,7 @@ function Login() {
       email: "adarshbalika@gmail.com",
       password: "adarshBalika123",
     });
-    loginHandler(loginDetails.email, loginDetails.password);
+    loginHandler("adarshbalika@gmail.com", "adarshBalika123");
   }
 
   return (
