@@ -32,10 +32,13 @@ const AuthProvider = ({children})=>{
                 lastName
             })
 
-            if(response.status === 200 && response.status === 201){
-                localStorage.setItem("loginCred",JSON.stringify({token: response.data.encodedToken,user:response.data.foundUser}));
-                setCurrentUser(response.data.foundUser);
-                setToken(response.data.encodedtoken);
+            console.log(response);
+
+            if(response.status === 200 || response.status === 201){
+                console.log("created");
+                localStorage.setItem("loginCred",JSON.stringify({token: response.data.encodedToken,user:response.data.createdUser}));
+                setCurrentUser(response.data.createdUser);
+                setToken(response.data.encodedToken);
             }
         }
         catch(err){

@@ -18,7 +18,8 @@ function NotesInput({ data, setEdit }) {
     content: "",
     dateCreated: `${date.getDate()}/${
       date.getMonth() + 1
-    }/${date.getFullYear()}`,
+    }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+    timeStamp: date.getTime(),
     label: "",
     backgroundColor: "#FFFFFF",
   };
@@ -46,7 +47,6 @@ function NotesInput({ data, setEdit }) {
           { headers: { authorization: token } }
         );
       }
-      console.log(response);
 
       if (response.status === 200 || response.status === 201) {
         dispatch({ type: "ADD_NOTES", payload: { note: response.data.notes } });
@@ -118,7 +118,10 @@ function NotesInput({ data, setEdit }) {
                   title: "",
                   content: "",
                   backgroundColor: note.backgroundColor,
-                  dateCreated: note.dateCreated,
+                  dateCreated: `${date.getDate()}/${
+                    date.getMonth() + 1
+                  }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+                  timeStamp: date.getTime(),
                   label: "",
                 }));
                 data && setEdit(false);

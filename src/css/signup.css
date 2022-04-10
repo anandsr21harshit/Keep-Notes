@@ -1,0 +1,41 @@
+@import url("./global.css");
+
+.login-container{
+    margin-top:8rem ;
+}
+
+#conditions{
+    display: inline-flex;
+    font-size: 0.8rem;
+    align-items: center;
+}
+
+input[type="checkbox"]{
+    margin-right: 0.5rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.input-primary{
+    border-radius: 0.2rem;
+    padding: 0.5rem;        
+}
+
+#userName{
+    margin-bottom: 1.5rem;
+}
+
+.have-account{
+    margin: 1rem 0rem;
+    text-align: center;
+}
+
+.have-account a{
+    color: inherit;
+}
+
+.login-card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

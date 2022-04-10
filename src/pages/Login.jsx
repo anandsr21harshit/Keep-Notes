@@ -16,7 +16,6 @@ function Login() {
         navigate("/home");
       }, 1000);
     }
-    console.log("useEffect");
   }, [token]);
 
   function guestLogin() {
@@ -29,7 +28,7 @@ function Login() {
 
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar/>
       <form
         action="submit"
         className="login-container"

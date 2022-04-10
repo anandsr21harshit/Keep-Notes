@@ -70,9 +70,9 @@ function Archive() {
                 >
                   <div className="heading">
                     <div className="card-title">{archivedData.title}</div>
-                    <div className="card-sub-title label">
+                    {archivedData.label && <div className="card-sub-title label">
                       {archivedData.label}
-                    </div>
+                    </div>}
                   </div>
                   <div className="card-content">{archivedData.content}</div>
                   <footer className="card-footer">

@@ -19,7 +19,9 @@ function Trash() {
       <div className="trash-container">
         <SideBar></SideBar>
         <div className="trash-item-container">
-          {state.trash.length === 0 && <h1 className="empty-trash-title">Trash is Empty</h1> }
+          {state.trash.length === 0 && (
+            <h1 className="empty-trash-title">Trash is Empty</h1>
+          )}
           {state.trash.map((trashItem) => {
             return (
               <div className="card-container" key={trashItem._id}>
@@ -29,12 +31,15 @@ function Trash() {
                 >
                   <div className="heading">
                     <div className="card-title">{trashItem.title}</div>
-                    <div className="card-sub-title">
-                      {trashItem.dateCreated}
-                    </div>
+                    {trashItem.label && (
+                      <div className="card-sub-title label">
+                        {trashItem.label}
+                      </div>
+                    )}
                   </div>
                   <div className="card-content">{trashItem.content}</div>
                   <footer className="card-footer">
+                    <div>{trashItem.dateCreated}</div>
                     <i
                       title="delete permanently"
                       className="bi bi-trash-fill m-32"
