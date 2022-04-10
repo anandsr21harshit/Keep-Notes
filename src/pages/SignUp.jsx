@@ -26,8 +26,13 @@ function SignUp() {
   },[token])
 
   function signUp(userDetails){
-    const {fname, lname, email, password} = userDetails;
-    signUpHandler(email,password,fname,lname);
+    const {fname, lname, email, password, confirmPassword} = userDetails;
+    if(password === confirmPassword){
+      signUpHandler(email,password,fname,lname);
+    }
+    else{
+      alert("Password not matching");
+    }
   }
 
   return (
