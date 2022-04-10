@@ -40,7 +40,7 @@ function Login() {
         <div className="login-card">
           <h1 className="login-title">Login</h1>
           <div className="input-container">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               className="input input-primary"
               type="text"
@@ -51,7 +51,7 @@ function Login() {
                 setLoginDetails({ ...loginDetails, email: e.target.value })
               }
             />
-            <label for="Password">Password</label>
+            <label htmlFor="Password">Password</label>
             <input
               className="input input-primary"
               type="password"

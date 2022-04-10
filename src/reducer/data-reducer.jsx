@@ -15,7 +15,6 @@ const dataReducer = (state, action) => {
                 notes: [...payload.note]
             }
         case "ARCHIVE":
-            console.log("archive data",[...payload.archive]);
             return{
                 ...state,
                 archive: [...payload.archive]

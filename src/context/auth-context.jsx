@@ -11,7 +11,7 @@ const AuthProvider = ({children})=>{
     const loginHandler = async (email,password)=>{
         try{
             const response = await axios.post("/api/auth/login",{email, password});
-            console.log(response);
+           
             if(response.status === 200 || response.status === 201){
                 localStorage.setItem("loginCred",JSON.stringify({token: response.data.encodedToken,user:response.data.foundUser}));
                 setCurrentUser(response.data.foundUser);
@@ -19,7 +19,8 @@ const AuthProvider = ({children})=>{
             }
         }
         catch(err){
-            console.error(err.message);
+            alert("Your id does not exist. Please signup!");
+            console.error(err);
         }
     }
 
@@ -32,10 +33,7 @@ const AuthProvider = ({children})=>{
                 lastName
             })
 
-            console.log(response);
-
             if(response.status === 200 || response.status === 201){
-                console.log("created");
                 localStorage.setItem("loginCred",JSON.stringify({token: response.data.encodedToken,user:response.data.createdUser}));
                 setCurrentUser(response.data.createdUser);
                 setToken(response.data.encodedToken);
