@@ -18,7 +18,6 @@ function SignUp() {
 
   useEffect(()=>{
       if(token){
-          console.log(token)
           setTimeout(()=>{
             navigate("/home")
           },1000)
